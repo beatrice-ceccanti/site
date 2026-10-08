@@ -1,0 +1,2 @@
+import {sqliteTable,text,integer,index} from "drizzle-orm/sqlite-core";
+export const articles=sqliteTable("articles",{id:text("id").primaryKey(),section:text("section").notNull(),language:text("language").notNull(),title:text("title").notNull(),body:text("body").notNull(),published:integer("published").notNull().default(0),updated:text("updated").notNull()},t=>[index("idx_articles_section_language").on(t.section,t.language)]);
